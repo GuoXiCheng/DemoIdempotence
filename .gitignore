@@ -1,0 +1,19 @@
+# idea file foler
+.idea/*
+ */.idea/*
+
+# venv files
+venv/*
+env/*
+
+__pycache__
+**/__pycache__
+
+
+*/migrations/*
+
+.coverage
+
+/logs/*
+
+/static
