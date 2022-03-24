@@ -6,94 +6,32 @@
     <div class="container-fluid">
 	<div class="row-fluid">
 		<div class="span12">
-			<table class="table">
+			<table class="table table-bordered table-hover">
 				<thead>
 					<tr>
 						<th>
 							编号
 						</th>
 						<th>
-							产品
+							用户ID
 						</th>
 						<th>
-							交付时间
+							姓名
 						</th>
 						<th>
-							状态
+							邮箱
 						</th>
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<td>
-							1
-						</td>
-						<td>
-							TB - Monthly
-						</td>
-						<td>
-							01/04/2012
-						</td>
-						<td>
-							Default
-						</td>
-					</tr>
-					<tr class="success">
-						<td>
-							1
-						</td>
-						<td>
-							TB - Monthly
-						</td>
-						<td>
-							01/04/2012
-						</td>
-						<td>
-							Approved
-						</td>
-					</tr>
-					<tr class="error">
-						<td>
-							2
-						</td>
-						<td>
-							TB - Monthly
-						</td>
-						<td>
-							02/04/2012
-						</td>
-						<td>
-							Declined
-						</td>
-					</tr>
-					<tr class="warning">
-						<td>
-							3
-						</td>
-						<td>
-							TB - Monthly
-						</td>
-						<td>
-							03/04/2012
-						</td>
-						<td>
-							Pending
-						</td>
-					</tr>
+				{% for user in user_list %}
 					<tr class="info">
-						<td>
-							4
-						</td>
-						<td>
-							TB - Monthly
-						</td>
-						<td>
-							04/04/2012
-						</td>
-						<td>
-							Call in to confirm
-						</td>
+						<td>{{ forloop.counter }}</td>
+						<td>{{user.user_id}}</td>
+						<td>{{user.user_name}}</td>
+						<td>{{user.email}}</td>
 					</tr>
+				{% endfor %}
 				</tbody>
 			</table>
 		</div>
