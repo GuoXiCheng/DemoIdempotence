@@ -1,0 +1,70 @@
+{%extends "header.html" %}
+{% block mainbody%}
+<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="span12">
+			<ul class="nav nav-pills">
+				<li class="active">
+					<a href="/delete">Delete幂等性</a>
+				</li>
+				<li>
+					<a href="/update">Update幂等性</a>
+				</li>
+				<li>
+					<a href="/insert">Insert幂等性</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="span12">
+			<table class="table table-bordered table-hover">
+				<thead>
+					<tr>
+						<th>
+							编号
+						</th>
+						<th>
+							用户ID
+						</th>
+						<th>
+							姓名
+						</th>
+						<th>
+							邮箱
+						</th>
+						<th>
+							操作
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+				{% for user in user_list %}
+					<tr class="info">
+						<td>{{ forloop.counter }}</td>
+						<td>{{user.user_id}}</td>
+						<td>{{user.user_name}}</td>
+						<td>{{user.email}}</td>
+						<form action="/delete-by-id" method="post">
+							{% csrf_token %}
+							<td>
+								<input id="user_id" type="text" name="user_id" value="{{user.user_id}}" hidden>
+								<input type="submit" value="删除">
+							</td>
+						</form>
+					</tr>
+				{% endfor %}
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+<script>
+	function deleteById(obj, user) {
+		console.log(user)
+	}
+</script>
+{% endblock %}
